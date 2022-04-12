@@ -11,7 +11,8 @@ The API was taken from the site https://kinopoiskapiunofficial.tech/
 Which I accessed with the async await function
 
 In this build:
-
++ Refactor first version on ReactJs
++ Encapsulated components
 + Pagination
 + Dynamic loading of movies and their rating in accordance with API changes
 + The search also works (Only the names in it are displayed in Russian, since the words are translated)
