@@ -21,10 +21,10 @@ In this build:
 ____
 
 Stack:
-+React
-+HTML/CSS
-+AXIOS
-+react-router-dom6
++ React
++ HTML/CSS
++ AXIOS
++ react-router-dom6
 
 TODO: 
 1. Sorting by Movie Genres
