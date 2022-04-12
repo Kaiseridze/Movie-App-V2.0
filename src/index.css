@@ -35,7 +35,12 @@ a {
   align-items: center;
 }
 
-.header_left h1 {
+@media screen and (max-width: 500px){
+  .header{
+    flex-direction: column;
+  }
+
+} .header_left h1 {
   cursor: pointer;
 }
 
@@ -108,6 +113,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .movie_info h4 {
