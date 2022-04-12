@@ -18,6 +18,13 @@ In this build:
 + The search also works (Only the names in it are displayed in Russian, since the words are translated)
 
 ~~For example~~: '***Your name***' will be translated like '***Твое имя***'
+____
+
+Stack:
++React
++HTML/CSS
++AXIOS
++react-router-dom6
 
 TODO: 
 1. Sorting by Movie Genres
