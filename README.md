@@ -28,4 +28,4 @@ Stack:
 
 TODO: 
 1. Sorting by Movie Genres
-2. Make a favorites list
+2. ~~Make a favorites list~~
