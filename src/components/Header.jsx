@@ -1,22 +1,38 @@
-import React from "react"
-function Header({ keyValue, handleChange, handleSubmit, selectPage, removeChange }) {
+import React, {useState, useEffect} from "react"
+import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+
+function Header({
+	keyValue,
+	handleChange,
+	handleSubmit,
+	selectPage,
+	removeChange,
+}) {
+	const [count, setCount] = useState()
 	const goToMain = () => {
-		removeChange()
-		selectPage(1)
+		if (keyValue || selectPage) {
+			removeChange()
+			selectPage(1)
+		}
 	}
+
+	const storeData = useSelector((state) => state.favoriteReducer)
+	useEffect(() => {
+		const favLength = Object.keys(storeData).length
+		setCount(favLength)
+	})
 	return (
 		<header className='header'>
 			<div className='header_left'>
-				<h1 onClick={goToMain}>ReactMovie</h1>
+				<Link to='/'>
+					<h1 onClick={goToMain}>ReactMovie</h1>
+				</Link>
 				<span>{keyValue && `Поиск по: ${keyValue}`}</span>
 			</div>
-			{/*
-			<ul className='categories'>
-				<li>Драма</li>
-				<li>Триллер</li>
-				<li>Комедия</li>
-			</ul>
-			*/}
+			<Link to='/favorites'>
+				<h2>Favorites {count}</h2>
+			</Link>
 			<form onSubmit={handleSubmit}>
 				<input
 					onChange={handleChange}

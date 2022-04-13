@@ -35,12 +35,14 @@ a {
   align-items: center;
 }
 
-@media screen and (max-width: 500px){
-  .header{
+@media screen and (max-width: 500px) {
+  .header {
     flex-direction: column;
   }
 
-} .header_left h1 {
+}
+
+.header_left h1 {
   cursor: pointer;
 }
 
@@ -193,4 +195,16 @@ a {
   background-color: #e6e7f2;
   color: #22256b;
   padding: 10px;
+}
+
+.badge {
+  cursor: pointer;
+}
+
+.movie_container h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: aliceblue;
 }

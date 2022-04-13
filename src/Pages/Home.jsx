@@ -10,7 +10,7 @@ function Home() {
 	const [movies, setMovies] = useState([])
 	const [keyValue, setKeyValue] = useState("")
    const [pages, setPages] = useState(1)
-   const [currentPage, setCurrentPage] = useState(1)
+	const [currentPage, setCurrentPage] = useState(1)
 
 	const getMovies = async (url) => {
 		await axios
@@ -71,6 +71,7 @@ function Home() {
 							name={movie.nameRu}
 							country={movie.countries.map((country) => country.country)}
 							key={movie.filmId}
+							filmId={movie.filmId}
 						/>
 					))}
 				</div>
