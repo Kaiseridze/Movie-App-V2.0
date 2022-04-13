@@ -13,27 +13,28 @@ const Movie = function Movie({
 	country,
 	filmId,
 }) {
-	const [favorite, setFavoite] = useState(false)
+	const [favorite, setFavorite] = useState(false)
 
 	const dispatch = useDispatch()
 	const storeData = useSelector((state) => state.favoriteReducer)
 
 	const dispatchFavoriteMovies = () => {
-		storeData[filmId] ? setFavoite(true) : setFavoite(false)
-		if (favorite) {
+		storeData[filmId] ? setFavorite(true) : setFavorite(false)
+		if (!favorite) {
+			dispatch(
+				setMovieToFavorite({
+					[filmId]: {
+						name,
+						imageUrl,
+						rating,
+					},
+				})
+			)
+			setFavorite(true)
+		} else {
 			dispatch(removeMovieFromFavorite(filmId))
-			setFavoite(false)
+			setFavorite(false)
 		}
-		dispatch(
-			setMovieToFavorite({
-				[filmId]: {
-					name,
-					imageUrl,
-					rating,
-				},
-			})
-		)
-		setFavoite(true)
 	}
 
 	return (
@@ -42,6 +43,7 @@ const Movie = function Movie({
 			<div className='movie_info'>
 				<h4>{name ? name : "Фильм не найден"}</h4>
 				<img
+					className='add_favorite'
 					src={favorite ? unfavorited : favorited}
 					onClick={dispatchFavoriteMovies}
 					alt=''
