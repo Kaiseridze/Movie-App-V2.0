@@ -14,6 +14,7 @@ In this build:
 + Refactor first version on ReactJs
 + Encapsulated components
 + Pagination
++ Favorite list
 + Dynamic loading of movies and their rating in accordance with API changes
 + The search also works (Only the names in it are displayed in Russian, since the words are translated)
 
@@ -24,6 +25,8 @@ Stack:
 + React
 + HTML/CSS
 + AXIOS
++ REDUX
++ REDUX-THUNK
 + react-router-dom6
 
 TODO: 
