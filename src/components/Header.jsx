@@ -1,21 +1,30 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
+import { MOVIE_TOP, SEARCH_BY_KEYWORD } from "../api"
 
-function Header({
-	keyValue,
-	handleChange,
-	handleSubmit,
-	selectPage,
-	removeChange,
-}) {
-	const [count, setCount] = useState()
-	const goToMain = () => {
-		if (keyValue || selectPage) {
-			removeChange()
-			selectPage(1)
+function Header({ getMovies }) {
+	const [keyValue, setKeyValue] = useState("")
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		if (keyValue) {
+			getMovies(`${SEARCH_BY_KEYWORD}${keyValue}`)
+		} else {
+			getMovies(MOVIE_TOP)
 		}
 	}
+
+	const handleChange = (e) => {
+		setKeyValue(e.target.value)
+	}
+
+	const goToMain = () => {
+		getMovies(MOVIE_TOP)
+		setKeyValue("")
+	}
+
+	const [count, setCount] = useState()
 
 	const storeData = useSelector((state) => state.favoriteReducer)
 	useEffect(() => {

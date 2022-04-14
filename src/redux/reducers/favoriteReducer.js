@@ -1,5 +1,7 @@
 import { omit } from "lodash"
-const initialState = {}
+import { getLocalStorage } from "../localStorage"
+
+const initialState = getLocalStorage("store")
 
 const favoriteReducer = (state = initialState, action) => {
 	switch (action.type) {

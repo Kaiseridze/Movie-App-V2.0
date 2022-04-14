@@ -46,7 +46,7 @@ const Movie = function Movie({
 					className='add_favorite'
 					src={favorite ? unfavorited : favorited}
 					onClick={dispatchFavoriteMovies}
-					alt=''
+					alt='add favorite'
 				/>
 			</div>
 			<span className={`tag ${classByRate(rating)}`}>

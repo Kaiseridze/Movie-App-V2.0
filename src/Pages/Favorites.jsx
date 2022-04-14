@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 
-import Header from "../components/Header"
 import FavoriteList from "../components/FavoriteList"
 
 function Favorites() {
 	const [favMovie, setFavMovie] = useState([])
 
 	const storeData = useSelector((state) => state.favoriteReducer)
+	
 
 	useEffect(() => {
 		const favMovieArr = Object.entries(storeData)
@@ -24,9 +24,7 @@ function Favorites() {
 		}
 	}, [])
 
-	return (
-		<>
-			<Header />
+	return (		
 			<div className='movie_container'>
 				{favMovie.length ? (
 					favMovie.map((item) => (
@@ -41,7 +39,6 @@ function Favorites() {
 					<h1 className='error_text'>Вы не добавили ни одного фильма</h1>
 				)}
 			</div>
-		</>
 	)
 }
 

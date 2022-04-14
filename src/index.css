@@ -199,3 +199,11 @@ a {
 .add_favorite {
   cursor: pointer;
 }
+
+.delete_value {
+  cursor: pointer;
+}
+
+.delete_value:hover{
+  transform: translateY(15px);
+}
