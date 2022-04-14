@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setMovieToFavorite, removeMovieFromFavorite } from "../redux/actions"
 import unfavorited from "../img/unfavorite.svg"
@@ -14,13 +14,14 @@ const Movie = function Movie({
 	filmId,
 }) {
 	const [favorite, setFavorite] = useState(false)
-
 	const dispatch = useDispatch()
 	const storeData = useSelector((state) => state.favoriteReducer)
 
 	const dispatchFavoriteMovies = () => {
-		storeData[filmId] ? setFavorite(true) : setFavorite(false)
-		if (!favorite) {
+		if (favorite) {
+			dispatch(removeMovieFromFavorite(filmId))
+			setFavorite(false)
+		} else {
 			dispatch(
 				setMovieToFavorite({
 					[filmId]: {
@@ -31,11 +32,12 @@ const Movie = function Movie({
 				})
 			)
 			setFavorite(true)
-		} else {
-			dispatch(removeMovieFromFavorite(filmId))
-			setFavorite(false)
 		}
 	}
+
+	useEffect(() => {
+		storeData[filmId] ? setFavorite(true) : setFavorite(false)
+	}, [])
 
 	return (
 		<div className='movie'>

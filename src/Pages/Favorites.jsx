@@ -7,7 +7,6 @@ function Favorites() {
 	const [favMovie, setFavMovie] = useState([])
 
 	const storeData = useSelector((state) => state.favoriteReducer)
-	
 
 	useEffect(() => {
 		const favMovieArr = Object.entries(storeData)
