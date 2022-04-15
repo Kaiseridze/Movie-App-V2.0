@@ -27,6 +27,7 @@ Stack:
 + AXIOS
 + REDUX
 + REDUX-THUNK
++ LODASH
 + react-router-dom6
 
 TODO: 
