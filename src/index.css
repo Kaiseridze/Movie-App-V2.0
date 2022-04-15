@@ -40,6 +40,11 @@ a {
     flex-direction: column;
   }
 
+  .header_left {
+    margin-bottom: 15px;
+  }
+
+
 }
 
 .header_left h1 {
@@ -204,6 +209,6 @@ a {
   cursor: pointer;
 }
 
-.delete_value:hover{
+.delete_value:hover {
   transform: translateY(15px);
 }

@@ -32,6 +32,8 @@ function Favorites() {
 							name={item.name}
 							imageUrl={item.imageUrl}
 							rating={item.rating}
+							filmId={item.filmId}
+							item={item}
 						/>
 					))
 				) : (

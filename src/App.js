@@ -11,6 +11,7 @@ import Header from "./components/Header"
 function App() {
 	const [movies, setMovies] = useState([])
 	const [pages, setPages] = useState(1)
+	const [currentPage, setCurrentPage] = useState(1)
 
 	const getMovies = async (url) => {
 		await axios
@@ -28,15 +29,27 @@ function App() {
 
 	return (
 		<>
-			<Header getMovies={getMovies} />
+			<Header
+				currentPage={currentPage}
+				setCurrentPage={setCurrentPage}
+				getMovies={getMovies}
+			/>
 			<Routes>
 				<Route path='*' element={<NotFound />} />
 				<Route
 					path='/'
-					element={<Home getMovies={getMovies} pages={pages} movies={movies} />}
+					element={
+						<Home
+							currentPage={currentPage}
+							setCurrentPage={setCurrentPage}
+							getMovies={getMovies}
+							pages={pages}
+							movies={movies}
+						/>
+					}
 				/>
 				<Route path='/favorites' element={<Favorites />} />
-			</Routes>
+			</Routes>{" "}
 		</>
 	)
 }

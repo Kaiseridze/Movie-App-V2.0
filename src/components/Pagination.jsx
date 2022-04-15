@@ -1,17 +1,18 @@
-import React, {useState} from "react"
+import React from "react"
 import { MOVIE_TOP } from "../api"
 
-function Pagination({ pages, getMovies}) {
+function Pagination({ pages, getMovies, currentPage, setCurrentPage }) {
 	let pageArray = []
 	for (let i = 1; i <= pages; i++) {
 		pageArray[i] = i
 	}
-	const [currentPage, setCurrentPage] = useState(1)
-	
+
 	const selectPage = (pageNumber) => {
 		getMovies(`${MOVIE_TOP}${pageNumber}`)
 		setCurrentPage(pageNumber)
 	}
+
+	console.log(pages)
 
 	return (
 		<footer className='pagination'>

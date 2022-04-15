@@ -3,9 +3,9 @@ import React, { useEffect } from "react"
 import Movie from "../components/Movie"
 import Pagination from "../components/Pagination"
 import { MOVIE_TOP } from "../api"
-import { useSelector } from "react-redux"
 
-function Home({ getMovies, pages, movies }) {
+
+const Home = React.memo(function Home({ getMovies, pages, movies, currentPage, setCurrentPage }) {
 	useEffect(() => {
 		getMovies(MOVIE_TOP)
 	}, [])
@@ -30,8 +30,8 @@ function Home({ getMovies, pages, movies }) {
 			) : (
 				<h1 className='error_text'>Ничего не найдено</h1>
 			)}
-			<Pagination pages={pages} getMovies={getMovies} />
+			<Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} pages={pages} getMovies={getMovies} />
 		</>
 	)
-}
+})
 export default Home

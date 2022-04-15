@@ -3,7 +3,10 @@ import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { MOVIE_TOP, SEARCH_BY_KEYWORD } from "../api"
 
-function Header({ getMovies }) {
+const Header = React.memo(function Header({
+	getMovies,
+	setCurrentPage,
+}) {
 	const [keyValue, setKeyValue] = useState("")
 
 	const handleSubmit = (e) => {
@@ -22,6 +25,7 @@ function Header({ getMovies }) {
 	const goToMain = () => {
 		getMovies(MOVIE_TOP)
 		setKeyValue("")
+		setCurrentPage(1)
 	}
 
 	const [count, setCount] = useState()
@@ -54,6 +58,6 @@ function Header({ getMovies }) {
 			</form>
 		</header>
 	)
-}
+})
 
 export default Header
